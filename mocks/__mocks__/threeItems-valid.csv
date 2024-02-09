@@ -1,4 +1,4 @@
-id,name,profession,birthDate
+id,name,profession,age
 123,Djinn,Bruxa,25
-311,Xuxa da Silva, Atriz,80
-444,José Raimundo, Pedreiro,56
+311,Xuxa da Silva,Atriz,80
+444,José Raimundo,Pedreiro,56
