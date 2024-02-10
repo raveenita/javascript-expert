@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "test": "npx mocha -w 'test/*.js'"
+  },
+  "name": "04-coverage-e2e",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "npx mocha -w * test.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "mocha": "^8.4.0",
+    "supertest": "^6.3.4"
+  }
+}
