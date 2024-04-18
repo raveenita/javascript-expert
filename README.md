@@ -58,3 +58,27 @@ const item2 = { ...item };
 
 - **toString**: returns a string representing the object. If an object has no primitive value, will call `valueOf()` method.
 - **valueOf**: returns a number of the specified object. If an object has no primitive value, will call `toString()` method.
+
+## Generators
+
+To transform functions into lists that can be iterated, we can use generators. Generators are functions that can be paused and resumed, allowing us to iterate over a list of values. For example, we can use generators to iterate over an infinite list of numbers. 
+The * symbol is used to define a generator function and the `yield` keyword is used to pause the function and return a value.
+
+```javascript
+function* infiniteNumbers() {
+  let i = 0;
+  while (true) {
+    yield i;
+    i++;
+  }
+}
+```
+
+And to iterate over the list of values, we can use the `next()` method.
+
+```javascript
+const numbers = infiniteNumbers();
+console.log(numbers.next().value); // 0
+console.log(numbers.next().value); // 1
+console.log(numbers.next().value); // 2
+```
