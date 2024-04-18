@@ -61,8 +61,10 @@ const item2 = { ...item };
 
 ## Generators
 
-To transform functions into lists that can be iterated, we can use generators. Generators are functions that can be paused and resumed, allowing us to iterate over a list of values. For example, we can use generators to iterate over an infinite list of numbers. 
+To transform functions into lists that can be iterated, we can use generators. The name generators come from the fact that they generate values on the fly.
+They are functions that can be paused and resumed, allowing us to iterate over a list of values. For example, we can use generators to iterate over an infinite list of numbers. 
 The * symbol is used to define a generator function and the `yield` keyword is used to pause the function and return a value.
+
 
 ```javascript
 function* infiniteNumbers() {
