@@ -1,34 +1,33 @@
-import chalk from 'chalk';
-import chalkTable from 'chalk-table';
-import DraftLog from 'draftlog';
-import readline from 'readline';
+import TerminalController from "./terminalController.js";
 import database from './../database.json';
-import read from 'fs';
 import Person from './person.js';
+import { save } from './repository.js';
 
-DraftLog(console).addLineListener(process.stdin);
+const DEFAULT_LANG = 'pt-BR';
+const STOP_TERMINAL_COMMAND = ':q';
 
-const options = {
-    leftPad: 2,
-    columns: [
-        { field: 'id', name: chalk.cyan('ID') },
-        { field: 'vehicles', name: chalk.magenta('Vehicles') },
-        { field: 'kmTravelled', name: chalk.cyan('km Travelled') },
-        { field: 'from', name: chalk.cyan('From') },
-        { field: 'to', name: chalk.green('To') },
-    ],
-};
+const terminalController = new TerminalController();
+terminalController.initializeTerminal(database, DEFAULT_LANG);
 
-const table = chalkTable(options, database.map(item => new Person(item).formatted('pt-BR')));
+async function mainLoop() {
+    try {
+        const answer = await terminalController.question('Register a car: [id, vehicle, kmTravelled, from, to]');
 
-const print = console.draft(table);
+        if (answer === STOP_TERMINAL_COMMAND) {
+            terminalController.closeTerminal();
+            console.log('process finished!');
+            return;
+        }
 
-const terminal = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-});
+        const person = Person.generateInstanceFromString(answer);
+        terminalController.updateTable(person.formatted(DEFAULT_LANG));
+        await save(person);
 
-terminal.question('Please type a command: ', (command) => {
-    console.log('You typed:', command);
-    terminal.close();
-});
+        return mainLoop();
+    }
+    catch (error) {
+        console.error('DEU RUIM', error);
+    }
+}
+
+await mainLoop();
