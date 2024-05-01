@@ -84,3 +84,54 @@ console.log(numbers.next().value); // 0
 console.log(numbers.next().value); // 1
 console.log(numbers.next().value); // 2
 ```
+
+## Symbols
+
+Symbols are unique identifiers that can be used as object keys. They are created using the `Symbol()` function and are unique in the level of memory.
+
+```javascript
+const uniqueKey = Symbol('username');
+const user = {};
+
+user['username'] = 'Raveenita';
+user[uniqueKey] = 'Geovana'; // always unique in level of memory
+
+console.log('getting username in normal Object', user.username); // value for normal Objects
+console.log('getting username in a Symbol Object', Symbol['username']);	// undefined
+```
+
+Besides it's hard to access the value of a symbol, we can use the `Object.getOwnPropertySymbols()` method to get all the symbols and retrieve the value.
+So it's not the best way to store sensitive data.
+
+We can use the Symbol to create private properties in a class.
+
+```javascript
+const _private = Symbol('private');
+
+class Person {
+  constructor(name) {
+    this[_private] = name;
+  }
+
+  getPrivate() {
+    return this[_private];
+  }
+}
+```
+
+## Map 
+
+Almost everything is inherited from an object in JavaScript, and this can be a problem because it duplicates the behavior of the object. To solve this problem, we can use the `Map` and `WeakMap` data structures.
+
+- Maps can validate if a key pair exists;
+- Maps have a feature to search for a key pair;
+
+To identify if an item exists in a Map, we can use the `has()` method.
+
+### WeakMap
+
+A weak map just can use objects as keys, and the values are weakly referenced, which means that if the object is removed from the memory, the value will be removed as well. 
+
+## Reflect
+
+Intercept the behavior of objects and change its behavior. It's a way to manipulate the object without changing the object itself.
