@@ -135,3 +135,81 @@ A weak map just can use objects as keys, and the values are weakly referenced, w
 ## Reflect
 
 Intercept the behavior of objects and change its behavior. It's a way to manipulate the object without changing the object itself.
+
+## Observer Pattern
+
+Allow us to add a list of observers to entities and notify them about any changes.
+
+## Regex
+
+- `\`: literal search
+- `?`: delimiter for optional characters
+- `\d{3}`: get 3 sequential digits
+- `^`: get only the beginning of the string
+- `[.-]`: get only the characters . or -
+- `\w`: get only the first character
+- `\w+`: get all the characters until the end of the string
+
+## Anti patterns
+
+Are solutions not recommended to solve a problem. Are commonly used but are not good practices.
+
+## Design patterns
+
+General and reusable solutions applied to common problems in software design. It's a description, blueprint or template to solve a problem using good practices.
+
+They show the interaction between objects and classes, and the responsibility of each one.
+
+## DRY
+
+Don't Repeat Yourself. It's a principle that aims to reduce repetition in code, avoiding redundancy and making the code easier to maintain.
+
+## KISS 
+
+Keep It Simple, Stupid. It's a principle that aims to keep the code simple and easy to understand.
+
+## YAGI
+
+You Aren't Gonna Need It. It's a principle that aims to avoid adding features that are not necessary at the moment.
+
+## SOLID
+
+### Single Responsibility Principle
+
+A class should have only one reason to change. It means that a class should have only one responsibility.
+
+### Open/Closed Principle
+
+A class should be open for extension but closed for modification. It means that we should be able to extend a class's behavior without modifying it.
+
+### Liskov Substitution Principle
+
+We should be able to replace a parent class with a child class without affecting the program's behavior.
+
+### Interface Segregation Principle
+
+A class should not be forced to implement interfaces it doesn't use. It means that we should create specific interfaces for each class.
+
+### Dependency Inversion Principle
+
+We should depend on abstractions, not implementations.
+
+
+## Design patterns
+
+### Factory
+
+They abstract the object creation process and avoid repeating the same code to create objects. It will return the final stance of the object.
+
+
+### N-tiers
+
+It's a design pattern that separates the application into different layers and each layer has a specific responsibility. It's useful to make the code more organized and easier to maintain.
+
+### Repository
+
+It's a design pattern that abstracts the data access layer and provides a way to access the data. It's useful to separate the data access logic from the business logic
+
+### Service or business
+
+It's a design pattern that abstracts the business logic. It's useful to separate the business logic from the data access logic.
